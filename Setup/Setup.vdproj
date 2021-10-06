@@ -19,12 +19,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_7F35F7E1581F4E57BAA3C960B8045E65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -122,26 +116,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F35F7E1581F4E57BAA3C960B8045E65"
-            {
-            "SourcePath" = "8:..\\RemindMe\\logo.ico"
-            "TargetName" = "8:logo.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_30C1DC279FDA40DCA73C9B61E63DADC1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -227,7 +201,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://github.com/BenediktAlkin/RemindMe"
-        "ARPPRODUCTICON" = "8:_7F35F7E1581F4E57BAA3C960B8045E65"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -336,12 +310,12 @@
             "Arguments" = "8:HideUI"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Folder" = "8:_A50BEF48A29D4336AE4A8DDE75419281"
             "WorkingFolder" = "8:_30C1DC279FDA40DCA73C9B61E63DADC1"
-            "Icon" = "8:_7F35F7E1581F4E57BAA3C960B8045E65"
+            "Icon" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7C3AD6E93F944BA0933EC005B4F187E2"
@@ -350,12 +324,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Folder" = "8:_F5A2CD9E30B9416EBBC9834B9E16EAFB"
             "WorkingFolder" = "8:_30C1DC279FDA40DCA73C9B61E63DADC1"
-            "Icon" = "8:_7F35F7E1581F4E57BAA3C960B8045E65"
+            "Icon" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DD693FA4365043C3A847B167613E72A9"
@@ -364,12 +338,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Folder" = "8:_9D9AF41F473D401C85FDDBAD6151AAE6"
             "WorkingFolder" = "8:_30C1DC279FDA40DCA73C9B61E63DADC1"
-            "Icon" = "8:_7F35F7E1581F4E57BAA3C960B8045E65"
+            "Icon" = "8:_4D6E2114CB174824A9F7903F6A991D2C"
             "Feature" = "8:"
             }
         }
