@@ -50,6 +50,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
+    # publish program to {application_name}/{build_config} (generates for obj/ folder for setup)
+    - name: Publish program
+      run: dotnet publish ${{ env.main_project_name }} --configuration ${{ env.build_config }} -o "${{ env.application_name }}/${{ env.build_config }}"
     # publish setup project to Setup/{build_config}
     - name: Publish setup
       shell: cmd
