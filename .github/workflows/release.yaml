@@ -62,11 +62,11 @@ jobs:
     # rename setup.exe
     - name: Rename setup
       run: |
-        cd Setup/${{ env.build_config }} && ren setup.exe "${{ env.application_name }} Installer.exe"
+        cd Setup/${{ env.build_config }} && ren setup.exe "${{ env.application_name }}-Installer.exe"
 
     # make git release
     - name: Release build
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          Setup/${{ env.build_config }}/${{ env.application_name }} Installer.exe
+          Setup/${{ env.build_config }}/${{ env.application_name }}-Installer.exe
