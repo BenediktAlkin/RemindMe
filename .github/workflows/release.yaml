@@ -59,14 +59,14 @@ jobs:
       run: |
         "%MSBUILD_PATH%" ${{ env.main_project_name }}.sln /Project Setup/Setup.vdproj /Build ${{ env.build_config }}
     
-    # rename setup.exe
+    # rename Setup.msi
     - name: Rename setup
       run: |
-        cd Setup/${{ env.build_config }} && ren setup.exe "${{ env.application_name }}-Installer.exe"
+        cd Setup/${{ env.build_config }} && ren Setup.msi "${{ env.application_name }}-Installer.msi"
 
     # make git release
     - name: Release build
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          Setup/${{ env.build_config }}/${{ env.application_name }}-Installer.exe
+          Setup/${{ env.build_config }}/${{ env.application_name }}-Installer.msi
