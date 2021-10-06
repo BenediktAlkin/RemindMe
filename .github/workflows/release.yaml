@@ -54,7 +54,7 @@ jobs:
     - name: Publish setup
       shell: cmd
       run: |
-        "%MSBUILD_PATH%" ${{ env.main_project_name }}_minimal.sln /Project Setup/Setup.vdproj /Build ${{ env.build_config }}
+        "%MSBUILD_PATH%" ${{ env.main_project_name }}.sln /Project Setup/Setup.vdproj /Build ${{ env.build_config }}
     
     # rename setup.exe
     - name: Rename setup
