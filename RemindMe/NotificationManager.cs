@@ -14,7 +14,7 @@ namespace RemindMe
         {
             NotificationTimer = new Timer
             {
-                Interval = 10 * 1000,
+                Interval = 60 * 60 * 1000,
                 AutoReset = true,
             };
             NotificationTimer.Elapsed += ShowNotification;
