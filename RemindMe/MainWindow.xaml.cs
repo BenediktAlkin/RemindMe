@@ -26,6 +26,10 @@ namespace RemindMe
         public MainWindow()
         {
             InitializeComponent();
+            // set icon of window
+            var iconUri = "file:///" + System.IO.Path.GetFullPath("logo_black.ico");
+            Icon = BitmapFrame.Create(new Uri(iconUri));
+
             ShowInTaskbar = false;
             var args = Environment.GetCommandLineArgs();
             // if ui should not be launched it is indicated with the argument "HideUI"
@@ -38,7 +42,7 @@ namespace RemindMe
             contextMenuStrip.Items.Add("Quit", null, Quit);
             NotifyIcon = new NotifyIcon
             {
-                Icon = new System.Drawing.Icon(System.IO.Path.Combine(Environment.CurrentDirectory, "logo.ico")),
+                Icon = new System.Drawing.Icon(System.IO.Path.Combine(Environment.CurrentDirectory, "logo_white.ico")),
                 Visible = true,
                 ContextMenuStrip = contextMenuStrip,
             };
