@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemindMe.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,14 @@ namespace RemindMe
     public partial class MainWindow : Window
     {
         private NotifyIcon NotifyIcon { get; set; }
+        private MainWindowViewModel ViewModel { get; }
 
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel = new MainWindowViewModel();
+            DataContext = ViewModel;
+
             // set icon of window
             var iconUri = "file:///" + System.IO.Path.GetFullPath("logo_black.ico");
             Icon = BitmapFrame.Create(new Uri(iconUri));
@@ -46,16 +51,21 @@ namespace RemindMe
                 Visible = true,
                 ContextMenuStrip = contextMenuStrip,
             };
-            NotifyIcon.Click += new EventHandler(ShowWindow);
+            NotifyIcon.Click += new EventHandler(NotifyIcon_Click);
 
             NotificationManager.Instance.StartTimer();
         }
 
-        private void ShowWindow(object sender, EventArgs e)
+        private void ShowWindow()
+        {
+            Visibility = Visibility.Visible;
+            ViewModel.StartUpdateTask();
+        }
+        private void NotifyIcon_Click(object sender, EventArgs e)
         {
             var args = e as System.Windows.Forms.MouseEventArgs;
             if (args.Button == MouseButtons.Left)
-                Visibility = Visibility.Visible;
+                ShowWindow();
         }
         private void Window_StateChanged(object sender, EventArgs e)
         {
@@ -63,6 +73,8 @@ namespace RemindMe
             {
                 WindowState = WindowState.Normal;
                 Visibility = Visibility.Hidden;
+
+                ViewModel.StopUpdateTask();
             }
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -70,10 +82,16 @@ namespace RemindMe
             NotifyIcon.Visible = false;
             NotificationManager.Instance.ClearNotifications();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+                ViewModel.StartUpdateTask();
+        }
 
         #region trac icon menu actions
-        private void Launch_RemindMe(object sender, EventArgs e) => Visibility = Visibility.Visible;
+        private void Launch_RemindMe(object sender, EventArgs e) => ShowWindow();
         private void Quit(object sender, EventArgs e) => Close();
         #endregion
+
     }
 }

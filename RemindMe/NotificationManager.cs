@@ -10,6 +10,10 @@ namespace RemindMe
     public class NotificationManager
     {
         public static NotificationManager Instance { get; } = new NotificationManager();
+
+        public delegate void TimerElapsedEventHandler(Timer timer);
+        public event TimerElapsedEventHandler OnTimerElapsed;
+
         private NotificationManager()
         {
             NotificationTimer = new Timer
@@ -17,7 +21,7 @@ namespace RemindMe
                 Interval = 60 * 60 * 1000,
                 AutoReset = true,
             };
-            NotificationTimer.Elapsed += ShowNotification;
+            NotificationTimer.Elapsed += NotificationTimer_Elapsed;
             ClearNotificationTimer = new Timer
             {
                 Interval = 7000, // ToastDuration.Short
@@ -25,13 +29,15 @@ namespace RemindMe
             ClearNotificationTimer.Elapsed += ClearNotificationTimer_Elapsed;
         }
 
-        private void ShowNotification(object sender, ElapsedEventArgs e)
+        public void NotificationTimer_Elapsed(object sender, ElapsedEventArgs e) => ShowNotification();
+        public void ShowNotification()
         {
             new ToastContentBuilder()
                 .AddText("Check your posture!")
                 .SetToastDuration(ToastDuration.Short)
                 .Show();
             ClearNotificationTimer.Start();
+            OnTimerElapsed?.Invoke(NotificationTimer);
         }
         private void ClearNotificationTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -48,6 +54,7 @@ namespace RemindMe
         public void StartTimer()
         {
             NotificationTimer.Start();
+            OnTimerElapsed?.Invoke(NotificationTimer);
         }
         public void StopTimer()
         {
