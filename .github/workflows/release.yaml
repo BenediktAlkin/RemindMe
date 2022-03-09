@@ -13,8 +13,8 @@ env:
 
 jobs:
   build:
-
-    runs-on: windows-latest
+    # version has to match the path in MSBUILD_PATH (windows-2022 e.g. requires path ...\Microsoft Visual Studio\2022\...)
+    runs-on: windows-2019
 
     steps:
     - name: Checkout
